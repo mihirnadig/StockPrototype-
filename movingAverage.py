@@ -36,8 +36,8 @@ class MovingAverage:
         return self.working_data.iloc[lower_bounds + 1:upper_bounds + 1]
 
 
-stock = MovingAverage("msft", 10)
-test = stock.average(3)
-print(test)
-print("controlllll")
-print(stock.control())
+# stock = MovingAverage("msft", 10)
+# test = stock.average(3)
+# print(test)
+# print("controlllll")
+# print(stock.control())
