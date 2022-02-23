@@ -25,19 +25,24 @@ class MovingAverage:
 
     # excludes current day
     def average(self, time_step):
+        w_data = self.master_data
         upper_bounds = len(self.master_data) - 1
         lower_bounds = upper_bounds - self.domain
         # print(f"length {len(self.master_data)}")
 
         for i in range(upper_bounds, lower_bounds, -1):
             j = i - time_step
-            self.working_data.iloc[i] = float(self.master_data.iloc[j + 1:i + 1].mean())
+            w_data.iloc[i] = float(self.master_data.iloc[j + 1:i + 1].mean()) # This is where the fix is
 
-        return self.working_data.iloc[lower_bounds + 1:upper_bounds + 1]
+        return w_data.iloc[lower_bounds + 1:upper_bounds + 1]
 
 
-# stock = MovingAverage("msft", 10)
-# test = stock.average(3)
+# stock = MovingAverage("msft", 200)
+# test = stock.control()
+# print("control")
 # print(test)
-# print("controlllll")
-# print(stock.control())
+# print("avg10")
+# print(stock.average(10).head())
+# print("avg50")
+# print(stock.average(50).head())
+#
