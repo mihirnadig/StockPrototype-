@@ -16,6 +16,8 @@ var2 = stock.average(10).head()
 print(var2.head())
 print(stock.average(50).head())
 
+# var1["add"] = var2
+# print(var1)
 # control_data = stock.control()
 # working_data = stock.average(20)
 # working_data_2 = stock.average(50)

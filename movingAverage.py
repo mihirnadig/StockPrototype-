@@ -16,12 +16,13 @@ class MovingAverage:
 
         self.stock = DataImport(stock_name, self.domain_full)
         self.master_data = self.stock.close_data()
+        self.control_master_data = self.stock.close_data()
         self.working_data = self.stock.close_data()
 
     def control(self):
-        upper_bounds = len(self.master_data)
+        upper_bounds = len(self.control_master_data)
         lower_bounds = upper_bounds - self.domain
-        return self.master_data.iloc[lower_bounds:upper_bounds]
+        return self.control_master_data.iloc[lower_bounds:upper_bounds]
 
     # excludes current day
     def average(self, time_step):
